@@ -5,7 +5,6 @@ export default class Card {
   pos: Point;
   symbols: number[];
 
-
   constructor(p: Point) {
     this.symbols = [];
     this.pos = new Point(p.x, p.y);

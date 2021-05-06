@@ -1,7 +1,6 @@
 import Card from "./card.js";
 import Point from "./point.js";
 
-
 export default class Doubble {
   cards: Card[];
   selectedCards: number[];

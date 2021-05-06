@@ -16,6 +16,7 @@ class Game {
     this.cardB = <HTMLDivElement>document.getElementById("cardB");
     this.nextBtn = <HTMLButtonElement>document.getElementById("nextBtn");
     this.nextBtn.addEventListener("click", () => this.nextClick());
+
     this.symbols = [
       "👻", "💀", "☠️", "👽", "👾", "🤖", "🎃", "🤠", "😈", "👹",
       "👺", "🤡", "💩", "👸", "🤴", "👼", "🚀", "👨‍🚀", "🎅", "☂️",
