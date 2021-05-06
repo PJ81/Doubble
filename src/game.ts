@@ -54,7 +54,6 @@ class Game {
       d.innerText = this.symbols[s];
       d.addEventListener("click", () => this.checkMatch(s));
       div.appendChild(d);
-      console.log(s);
     });
   }
 
