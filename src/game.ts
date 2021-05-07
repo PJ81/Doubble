@@ -18,7 +18,7 @@ class Game {
     this.nextBtn.addEventListener("click", () => this.nextClick());
 
     this.symbols = [
-      "👻", "💀", "☠️", "👽", "👾", "🤖", "🎃", "🤠", "😈", "👹",
+      "👻", "🎲", "☠️", "👽", "👾", "🤖", "🎃", "🤠", "😈", "👹",
       "👺", "🤡", "💩", "👸", "🤴", "👼", "🚀", "👨‍🚀", "🎅", "☂️",
       "🧵", "🎒", "💄", "💍", "🚂", "🏫", "🚒", "✈️", "🛌🏻", "🐶",
       "🐱", "🐭", "🐹", "🐰", "🦊", "🐻", "🐼", "🐜", "🦟", "🦗",
@@ -34,6 +34,8 @@ class Game {
       "💈", "🌴", "🗼", "🍁", "🌋", "🍜", "🧿", "🍿", "🕌", "🌄"];
 
     this.nextClick();
+
+    this.test();
   }
 
   nextClick() {
@@ -61,7 +63,7 @@ class Game {
     if (this.match(s)) {
       this.nextClick();
     } else {
-      //this.nextClick();
+      //something else
     }
   }
 
@@ -79,10 +81,38 @@ class Game {
         break;
       }
     }
-
     return f1 && f2;
   }
 
+  test() {
+    let c: Card, d: Card, f: boolean, l = this.doubble.cards.length;
+    for (let a = 0; a < l; a++) {
+      for (let b = 0; b < l; b++) {
+        if (a === b) continue;
+        c = this.doubble.cards[a];
+        d = this.doubble.cards[b];
+
+        f = false;
+        beg:
+        for (let z = 0; z < c.symbols.length; z++) {
+          for (let u = 0; u < c.symbols.length; u++) {
+            if (c.symbols[z] === d.symbols[u]) {
+              f = true;
+              break beg;
+            }
+          }
+        }
+
+        if (!f) {
+          console.log("!!!!! E R R O R !!!!!");
+          console.log(c.symbols);
+          console.log(d.symbols);
+          return;
+        }
+      }
+    }
+    console.log("!!!!! C O O L !!!!!");
+  }
 }
 
 new Game();

@@ -20,14 +20,16 @@ export default class Doubble {
       this.selectedCards.push(n);
     }
 
-    let ziel = this.selectedCards.length - 1, tmp, posA, end = ziel - 1;
-    while (end > 0) {
-      posA = Math.floor(Math.random() * end);
-      tmp = this.selectedCards[posA];
-      this.selectedCards[posA] = this.selectedCards[ziel];
-      this.selectedCards[ziel] = tmp;
-      end--;
-      ziel--;
+    for (let r = 0; r < 10; r++) {
+      let ziel = this.selectedCards.length - 1, tmp, posA, end = ziel - 1;
+      while (end > 0) {
+        posA = Math.floor(Math.random() * end);
+        tmp = this.selectedCards[posA];
+        this.selectedCards[posA] = this.selectedCards[ziel];
+        this.selectedCards[ziel] = tmp;
+        end--;
+        ziel--;
+      }
     }
     this.lastIdx = 0;
   }
