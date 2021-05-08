@@ -35,7 +35,7 @@ class Game {
 
     this.nextClick();
 
-    this.test();
+    //this.test();
   }
 
   nextClick() {
@@ -84,7 +84,7 @@ class Game {
     return f1 && f2;
   }
 
-  test() {
+  /*test() {
     let c: Card, d: Card, f: boolean, l = this.doubble.cards.length;
     for (let a = 0; a < l; a++) {
       for (let b = 0; b < l; b++) {
@@ -112,7 +112,7 @@ class Game {
       }
     }
     console.log("!!!!! C O O L !!!!!");
-  }
+  }*/
 }
 
 new Game();
