@@ -1,6 +1,8 @@
-This is a simple implementation of the *Dobble* card game.
-It is able to create as many cards as you want, as long as the
-the number of cards you create is prime, and you have enough 
-symbols to be displayed on them.
-If n is the number of cards you are creating, then you will 
-need n * (n + 1) + 1 symbols.
+This is a simple implementation of the * Dobble * card game.
+You can create as many cards as you want, as long as you use 
+a prime number size grid to generate your deck of cards. 
+Basically, call the Doubble constructor with a prime number 
+as argument.
+And, of course, you must have enough symbols to display on 
+the cards. If n is the size of your matrix, then you need:
+n * (n + 1) + 1 symbols.
