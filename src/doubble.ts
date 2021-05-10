@@ -5,7 +5,6 @@ export default class Doubble {
   cards: Card[];
   selectedCards: number[];
   symbolIdx: number;
-  lastIdx: number;
   max: number;
 
   constructor(m: number = 7) {
@@ -15,8 +14,6 @@ export default class Doubble {
 
   createRandMatrix() {
     this.selectedCards = [];
-    this.lastIdx = 0;
-
     for (let n = 0; n < this.cards.length; n++)
       this.selectedCards.push(n);
     shuffleArray(this.selectedCards, 10);
@@ -96,10 +93,11 @@ export default class Doubble {
   }
 
   getOneCard(): Card {
-    const c = this.cards[this.selectedCards[this.lastIdx]];
-    if (++this.lastIdx >= this.selectedCards.length) {
+    if (this.selectedCards.length < 1) {
       this.createRandMatrix();
     }
+    const c = this.cards[this.selectedCards[0]];
+    this.selectedCards.splice(0, 1);
     return c;
   }
 
