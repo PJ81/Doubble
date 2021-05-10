@@ -6,3 +6,4 @@ as argument.
 And, of course, you must have enough symbols to display on 
 the cards. If n is the size of your matrix, then you need:
 n * (n + 1) + 1 symbols.
+Check [ALL CARDS] to see all cards built.

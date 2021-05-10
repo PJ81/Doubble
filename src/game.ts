@@ -6,16 +6,28 @@ class Game {
   cardA: HTMLDivElement;
   cardB: HTMLDivElement;
   nextBtn: HTMLButtonElement;
+  allBtn: HTMLButtonElement;
+  backBtn: HTMLButtonElement;
   symbols: string[];
   card1: Card;
   card2: Card;
+  content: HTMLDivElement;
+  allCards: HTMLDivElement;
 
   constructor() {
-    this.doubble = new Doubble(11);
+    this.doubble = new Doubble(13);
     this.cardA = <HTMLDivElement>document.getElementById("cardA");
     this.cardB = <HTMLDivElement>document.getElementById("cardB");
+
     this.nextBtn = <HTMLButtonElement>document.getElementById("nextBtn");
+    this.allBtn = <HTMLButtonElement>document.getElementById("allBtn");
+    this.backBtn = <HTMLButtonElement>document.getElementById("backBtn");
+    this.content = <HTMLDivElement>document.getElementById("content");
+    this.allCards = <HTMLDivElement>document.getElementById("allCards");
+
     this.nextBtn.addEventListener("click", () => this.nextClick());
+    this.allBtn.addEventListener("click", () => this.drawAllCards());
+    this.backBtn.addEventListener("click", () => this.backToGame());
 
     this.symbols = [
       "👻", "🎲", "☠️", "👽", "👾", "🤖", "🎃", "🤠", "😈", "👹",
@@ -31,11 +43,21 @@ class Game {
       "🥩", "🐒", "🐩", "🦝", "🦁", "🐆", "🦄", "🐮", "🐷", "🐏",
       "🐫", "🦒", "🐘", "🍔", "🦇", "🎪", "🦨", "🐓", "🐥", "🐧",
       "🦆", "🦉", "🦜", "🦚", "🐸", "🐠", "🐚", "🦋", "🐞", "🦠",
-      "💈", "🌴", "🗼", "🍁", "🌋", "🍜", "🧿", "🍿", "🕌", "🌄"];
+      "💈", "🌴", "🗼", "🍁", "🌋", "🍜", "🧿", "🍿", "🕌", "🌄",
+      "⚽", "🏈", "🥏", "🎳", "🪀", "🪁", "🎱", "🎰", "🧸", "👓",
+      "🎯", "🀄", "🧶", "👔", "👗", "👙", "🩰", "👑", "🎩", "💎",
+      "🥊", "⛳", "🧦", "🥾", "📯", "🎶", "🎸", "🥁", "📞", "🔋",
+      "🥋", "🎭", "🎥", "🎬", "🏮", "🪔", "📚", "🔖", "💰", "📦",
+      "📮", "🧬", "🪓", "🔫", "🧲", "📌", "🩸", "🧷", "🧯", "🏳️‍🌈"];
 
     this.nextClick();
 
     //this.test();
+  }
+
+  backToGame() {
+    this.content.classList.remove("hide");
+    this.allCards.classList.add("hide");
   }
 
   nextClick() {
@@ -48,7 +70,6 @@ class Game {
 
   showCard(c: Card, div: HTMLDivElement) {
     c.shuffleSymbols();
-
     div.innerHTML = "";
     c.symbols.forEach(s => {
       const d = document.createElement("div");
@@ -82,6 +103,25 @@ class Game {
       }
     }
     return f1 && f2;
+  }
+
+  drawAllCards() {
+    this.content.classList.add("hide");
+    this.allCards.classList.remove("hide");
+
+    let div: HTMLDivElement, divCrds = <HTMLDivElement>document.getElementById("crds");;
+    this.doubble.cards.forEach(card => {
+      div = <HTMLDivElement>document.createElement("div");
+      div.classList.add("allCrds");
+      card.symbols.forEach(s => {
+        const d = document.createElement("div");
+        d.classList.add("pic");
+        d.innerText = this.symbols[s];
+        d.addEventListener("click", () => this.checkMatch(s));
+        div.appendChild(d);
+      });
+      divCrds.appendChild(div);
+    });
   }
 
   /*test() {

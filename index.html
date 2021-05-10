@@ -7,6 +7,7 @@
     <title>Doubble</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="preconnect" href="https://fonts.gstatic.com">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="screen" href="./css/style.css" />
     <script src="./dist/game.js" type="module"></script>
@@ -14,10 +15,15 @@
 
 <body>
   <p id="title">Game of Doubble</p>
+  <div id="allCards" class="hide">
+    <div id="crds"></div>
+    <button id="backBtn">BACK</button>
+  </div>
   <div id="content">
     <div id="cardA" class="cardImg"></div>
     <div id="cardB" class="cardImg"></div>
     <button id="nextBtn">NEXT</button>
+    <button id="allBtn">ALL CARDS</button>
   </div>
 </body>
 

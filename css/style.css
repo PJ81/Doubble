@@ -4,13 +4,7 @@
   user-select: none;
 }
 
-#content {
-  text-align: center;
-  width: 50%;
-  margin: 30px auto;
-}
-
-#nextBtn {
+button {
   width: 100px;
   height: 25px;
   margin: 20px;
@@ -20,20 +14,38 @@
   font-size: 35px;
 }
 
-.cardImg {
+#content,
+#allCards {
+  margin: 30px;
+  display: flexbox;
+  align-content: center;
+}
+
+.cardImg,
+.allCrds {
   border-radius: 5px;
   border: black 2px solid;
   margin: 10px auto;
-  width: 300px;
+  width: 380px;
   height: 250px;
   background-color: ghostwhite;
 }
 
+.allCrds {
+  display: inline-block;
+  margin: 10px;
+}
+
 .pic {
-  float: left;
+  display: inline-grid;
   font-size: 50px;
   width: 50px;
   height: 50px;
-  margin: 10px;
+  line-height: 50px;
+  margin: 16px 20px 10px 5px;
   cursor: pointer;
+}
+
+.hide {
+  display: none;
 }
